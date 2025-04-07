@@ -31,4 +31,4 @@
 
 ## 💻 Screenshot
 
-<img loading="lazy" src="./assets/images/screenshot.png" style="width: 100%"/>
+<img loading="lazy" src="public/assets/images/screenshot.png" style="width: 100%"/>
