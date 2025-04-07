@@ -1,46 +1,34 @@
-![Thumbnail](./thumbnail.png)
-
 # Deleite
 
-**Deleite** é um projeto de e-commerce desenvolvido com Angular, utilizando renderização no servidor (SSR) para proporcionar uma experiência de navegação rápida e otimizada. O projeto inclui uma página inicial com a listagem de produtos e uma página de detalhes para exibir informações específicas de cada item.
+## ℹ️ Sobre
 
-## Funcionalidades do projeto
+<p>Projeto utilizado no curso para aprendizado das técnicas e melhores práticas.</p>
 
-- **Listagem de produtos**: Exibe os produtos disponíveis com imagem e nome.
-- **Tela de detalhes do produto**: Mostra informações detalhadas do produto selecionado, como preço e ingredientes, proporcionando uma experiência de compra mais informativa.
+## 📘Ementa
 
-## Técnicas e tecnologias utilizadas
+### Acessibilidade no Angular: aprimorando formulários, modais e rotas
 
-- **Angular com SSR (Server-Side Rendering)**: Melhora o SEO e o tempo de carregamento inicial ao renderizar conteúdo no servidor antes de exibi-lo.
-- **Supabase**: Usado como backend para o banco de dados, permitindo a manipulação e consumo de dados de maneira eficiente.
-- **Conexão e consumo de API no Angular**: Integração com o backend do Supabase, garantindo acesso aos dados em tempo real.
-- **Angular Material**: Proporciona componentes prontos e estilizados, como cards, botões, e modais, garantindo uma interface consistente e fácil de usar.
-- **Meta Tags Open Graph (OG)**: Implementadas para otimização de SEO e melhor compartilhamento em redes sociais.
-- **Pré-renderização de rotas com SSG (Static Site Generation)**: Utilizada para gerar conteúdo estático para rotas específicas, melhorando a performance e o tempo de resposta.
-- **Otimização de performance**: Técnicas para otimizar o carregamento e a usabilidade.
+- Configurar o SSR em aplicações Angular, melhorando a performance e SEO
+- Implementar o backend com Supabase, conectando sua aplicação Angular a um banco de dados
+- Aprender a consumir APIs e gerenciar variáveis de ambiente com segurança e eficiência
+- Aplicar métodos de otimização para elevar a performance da aplicação
+- Utilizar meta tags Open Graph (OG) para melhorar o SEO e a aparência nos compartilhamentos em redes sociais
+- Implementar a pré-renderização de rotas com SSG, o Static Site Generation
+- Entender as diferenças e vantagens entre CSR, SSR e SSG, explorando cada abordagem para cenários específicos da aplicação
 
-## Link do Figma
+## 🖥️ Tecnologias
 
-Você pode [acessar o Figma do projeto aqui](https://www.figma.com/community/file/1426683199017059395).
+<div>
+  <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff">
+  <img src="https://img.shields.io/badge/Angular-%23DD0031.svg?logo=angular&logoColor=white">
+</div>
 
-## Abrir e rodar o projeto
+## 🧑‍🏫 Instrutor(es)
 
-Para abrir e rodar o projeto, utilize os seguintes comandos:
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/103528784?v=4" width=115><br><sub>Nayanne Batista</sub>](https://github.com/nayannelbatista) |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
-### Instale as dependências
+## 💻 Screenshot
 
-```bash
-npm install
-```
-
-### Instale o angular material
-```bash
-ng add @angular/material
-```
-
-### Execute o projeto 
-```bash
-ng serve
-```
-
-Acesse o frontend localmente em seu navegador: http://localhost:4200
+<img loading="lazy" src="./assets/images/screenshot.png" style="width: 100%"/>
