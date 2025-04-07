@@ -5,7 +5,16 @@ import { environment } from '../../environments/environment.development';
 import { from, Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
 
-const supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+const supabase = createClient(
+  environment.supabaseUrl,
+  environment.supabaseKey,
+  {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  }
+);
 
 @Injectable({
   providedIn: 'root',
