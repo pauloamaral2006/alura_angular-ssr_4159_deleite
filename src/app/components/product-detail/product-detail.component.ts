@@ -12,11 +12,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { catchError, Observable, of } from 'rxjs';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
+import { AppShellRenderDirective } from '../../directives/app-shell-render.directive';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { AppShellNoRenderDirective } from '../../directives/app-shell-no-render.directibe';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
   imports: [
+    AppShellRenderDirective,
+    AppShellNoRenderDirective,
     CommonModule,
     MatCardModule,
     MatFormFieldModule,
@@ -26,6 +31,7 @@ import { ProductService } from '../../services/product.service';
     MatButtonModule,
     MatIcon,
     RouterLink,
+    MatProgressSpinner,
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',

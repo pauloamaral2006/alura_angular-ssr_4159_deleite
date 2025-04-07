@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { Observable } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AppShellRenderDirective } from '../../directives/app-shell-render.directive';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent],
+  imports: [
+    CommonModule,
+    ProductCardComponent,
+    MatProgressSpinnerModule,
+    AppShellRenderDirective,
+  ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
 })
