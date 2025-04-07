@@ -6,7 +6,7 @@
 
 ## 📘Ementa
 
-### Acessibilidade no Angular: aprimorando formulários, modais e rotas
+### Angular e Supabase: otimize a sua aplicação com SSR
 
 - Configurar o SSR em aplicações Angular, melhorando a performance e SEO
 - Implementar o backend com Supabase, conectando sua aplicação Angular a um banco de dados
