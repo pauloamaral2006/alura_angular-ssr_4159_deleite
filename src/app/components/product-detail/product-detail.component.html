@@ -9,7 +9,7 @@
     <mat-spinner></mat-spinner>
     <p>Carregando produtos...</p>
   </div>
-  @if (product$ | async; as product) {
+  @if (product) {
   <div class="content">
     <div class="product-image" *appShellNoRender>
       <img [src]="product.imageDetails" alt="{{ product.title }}" />
