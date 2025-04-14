@@ -16,6 +16,14 @@
 - Implementar a pré-renderização de rotas com SSG, o Static Site Generation
 - Entender as diferenças e vantagens entre CSR, SSR e SSG, explorando cada abordagem para cenários específicos da aplicação
 
+### Angular e Supabase: refinando a aplicação com SSR
+
+- Atualizar suas habilidades implementando SSR em aplicações Angular com técnicas como hydration e incremental hydration
+- Explorar a integração avançada, conectando sua aplicação Angular a um back-end Supabase para persistência de dados em tempo real
+- Aprimorar a gestão de estado com RxJS para manipulação de dados em tempo real e integração fluida entre frontend e backend
+- Entender a renderização híbrida que combina SSR e SSG para atender diferentes necessidades do projeto
+- Otimizar para aplicações para produção, configurando e fazendo o deploy de aplicações SSR
+
 ## 🖥️ Tecnologias
 
 <div>
