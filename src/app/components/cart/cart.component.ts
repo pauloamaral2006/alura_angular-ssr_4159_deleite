@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-cart',
@@ -31,10 +31,11 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
   ngOnInit(): void {
     this.cartService.cartItem$.subscribe((items) => {
       this.cartItems = items;
+      this.calculateTotal();
     });
   }
 
@@ -43,11 +44,26 @@ export class CartComponent implements OnInit {
     return Array.from({ length: maxQuantity }, (_, i) => i + 1);
   }
 
-  updateQuantity(productId: number, newQuantity: number) {}
+  updateQuantity(productId: number, newQuantity: number) {
+    this.cartService.updateCartItem(productId, newQuantity);
+  }
 
-  removeItem(productId: number) {}
+  removeItem(productId: number) {
+    this.cartService.removeFromCart(productId);
+  }
 
-  finalizePurchase() {}
+  finalizePurchase() {
+    alert('Compra finalizada');
+  }
 
-  continueShopping() {}
+  continueShopping() {
+    this.router.navigate(['/']);
+  }
+
+  calculateTotal() {
+    this.total = this.cartItems.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0
+    );
+  }
 }

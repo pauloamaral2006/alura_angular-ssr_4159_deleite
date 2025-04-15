@@ -34,14 +34,30 @@ export class CartService {
       },
     });
   }
+
   private saveCartitem(cartItem: CartItem): Observable<void> {
     return from(
       supabase
         .from('cart_items')
-        .upsert({
-          product_id: cartItem.product.id,
-          quantity: cartItem.quantity,
+        .upsert(
+          {
+            product_id: cartItem.product.id,
+            quantity: cartItem.quantity,
+          },
+          { onConflict: 'product_id' }
+        )
+        .then(({ error }) => {
+          if (error) throw new Error(error.message);
         })
+    );
+  }
+
+  private deleteCartItem(productId: number): Observable<void> {
+    return from(
+      supabase
+        .from('cart_items')
+        .delete()
+        .eq('product_id', productId)
         .then(({ error }) => {
           if (error) throw new Error(error.message);
         })
@@ -50,12 +66,15 @@ export class CartService {
   private getCurrentItems(): CartItem[] {
     return this.cartItemsSubject.getValue();
   }
-  addToCart(product: Product, quantity: number = 1) {
+
+  private findItemIndexByProductId(productId: number) {
     const currentItems = this.getCurrentItems();
 
-    const itemIndex = currentItems.findIndex(
-      (item) => item.product.id == product.id
-    );
+    return currentItems.findIndex((item) => item.product.id == productId);
+  }
+  addToCart(product: Product, quantity: number = 1) {
+    const currentItems = this.getCurrentItems();
+    const itemIndex = this.findItemIndexByProductId(product.id);
 
     if (itemIndex >= 0) {
       currentItems[itemIndex].quantity += quantity;
@@ -69,6 +88,23 @@ export class CartService {
     ).subscribe({});
   }
 
+  updateCartItem(productId: number, quantity: number) {
+    const currentItems = this.getCurrentItems();
+    const itemIndex = this.findItemIndexByProductId(productId);
+
+    if (itemIndex >= 0) {
+      currentItems[itemIndex].quantity = quantity;
+      this.cartItemsSubject.next(currentItems);
+      this.saveCartitem(currentItems[itemIndex]).subscribe({});
+    }
+  }
+  removeFromCart(productId: number) {
+    const updatedItems = this.getCurrentItems().filter(
+      (item) => item.product.id != productId
+    );
+    this.cartItemsSubject.next(updatedItems);
+    this.deleteCartItem(productId).subscribe();
+  }
   getTotalQuantity(): number {
     return this.getCurrentItems().reduce((acc, item) => acc + item.quantity, 0);
   }
