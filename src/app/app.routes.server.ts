@@ -6,7 +6,7 @@ import { productResolver } from './product.resolver';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AboutComponent } from './pages/about/about.component';
 
-export const routes: Routes = [
+export const serverRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
